@@ -172,6 +172,10 @@ def create_account(username, password, email, birthday):
 
     print("Account successfully created.")
     driver.close()
+    
+    print("Sleeping for 5 min...")
+    time.sleep(300)
+    
     return True
 
 
