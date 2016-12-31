@@ -175,6 +175,7 @@ def create_account(username, password, email, birthday):
     
     print("Sleeping for 5 min...")
     time.sleep(300)
+    print("OK ----> Next....")
     
     return True
 
