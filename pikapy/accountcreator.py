@@ -203,23 +203,23 @@ def _validate_response(driver):
         raise PTCException("Generic failure. User was not created.")
 
 
-def dot_trick(username):
-    emails = list()
-    username_length = len(username)
-    combinations = pow(2, username_length - 1)
-    padding = "{0:0" + str(username_length - 1) + "b}"
-    for i in range(0, combinations):
-        bin = padding.format(i)
-        full_email = ""
+# def dot_trick(username):
+#     emails = list()
+#     username_length = len(username)
+#     combinations = pow(2, username_length - 1)
+#     padding = "{0:0" + str(username_length - 1) + "b}"
+#     for i in range(0, combinations):
+#         bin = padding.format(i)
+#         full_email = ""
 
-        for j in range(0, username_length - 1):
-            full_email += (username[j]);
-            if bin[j] == "1":
-                full_email += "."
-        full_email += (username[j + 1])
-        #emails.append(full_email + "@gmail.com")
-    #return emails
-    return full_email
+#         for j in range(0, username_length - 1):
+#             full_email += (username[j]);
+#             if bin[j] == "1":
+#                 full_email += "."
+#         full_email += (username[j + 1])
+#         #emails.append(full_email + "@gmail.com")
+#     #return emails
+#     return full_email
 
 
 def random_account(username=None, password=None, email=None, birthday=None, plusmail=None, x=1, numeric=None, dry=False):
@@ -233,7 +233,7 @@ def random_account(username=None, password=None, email=None, birthday=None, plus
     try_email = _random_email() if email is None else str(email)
     if plusmail is not None:
         pm = plusmail.split("+@")
-        try_username = dot_trick(try_username)
+        #try_username = dot_trick(try_username)
         try_email = pm[0] + "+" + try_username + "@" + pm[1]
     elif numeric is not None and username is not None and email is not None:
         pm = try_email.split("@")
