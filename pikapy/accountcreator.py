@@ -156,7 +156,7 @@ def create_account(username, password, email, birthday):
     elem = driver.find_element_by_class_name("g-recaptcha")
     driver.execute_script("arguments[0].scrollIntoView(true);", elem)
 
-    os.system('say "กรุณากรอก Captcha"')
+    os.system('say "Please enter the captcha in the browser window"')
     
     # Waits 1 minute for you to input captcha
     WebDriverWait(driver, 60).until(EC.text_to_be_present_in_element_value((By.ID, "g-recaptcha-response"), ""))
