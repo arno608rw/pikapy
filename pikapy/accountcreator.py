@@ -30,7 +30,7 @@ def _random_string(length=15):
     return generate_words(3)
 
 def _random_string_password(length=15):
-    randompass = ''.join([random.choice(string.ascii_letters + string.digits) for n in xrange(length)])
+    randompass = ''.join([random.choice(string.ascii_letters + string.digits + string.punctuation) for n in xrange(length)])
     return randompass
 
 def _random_email(local_length=10, sub_domain_length=5, top_domain=".com"):
