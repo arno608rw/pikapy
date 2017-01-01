@@ -29,6 +29,10 @@ BAD_DATA_URL = 'https://club.pokemon.com/us/pokemon-trainer-club/parents/sign-up
 def _random_string(length=15):
     return generate_words(3)
 
+def _random_string_password(length=15):
+    valid_letters='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890#'
+    return ''.join((random.choice(valid_letters) for i in xrange(length)))
+
 def _random_email(local_length=10, sub_domain_length=5, top_domain=".com"):
     return "{local}@{sub_domain}{top_domain}".format(
         local=_random_string(local_length),
