@@ -3,6 +3,8 @@ import string
 import random
 import datetime
 
+import os
+
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -154,6 +156,8 @@ def create_account(username, password, email, birthday):
     elem = driver.find_element_by_class_name("g-recaptcha")
     driver.execute_script("arguments[0].scrollIntoView(true);", elem)
 
+    os.system('say "Enter Captcha"')
+    
     # Waits 1 minute for you to input captcha
     WebDriverWait(driver, 60).until(EC.text_to_be_present_in_element_value((By.ID, "g-recaptcha-response"), ""))
     print("Captcha successful. Sleeping for 1 second...")
