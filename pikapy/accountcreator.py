@@ -30,8 +30,8 @@ def _random_string(length=15):
     return generate_words(3)
 
 def _random_string_password(length=15):
-    valid_letters='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890#'
-    return ''.join((random.choice(valid_letters) for i in xrange(length)))
+    random = ''.join([random.choice(string.ascii_letters + string.digits) for n in xrange(length)])
+    return random
 
 def _random_email(local_length=10, sub_domain_length=5, top_domain=".com"):
     return "{local}@{sub_domain}{top_domain}".format(
@@ -183,7 +183,7 @@ def create_account(username, password, email, birthday):
     
     #print("Sleeping for 5 min...")
     #time.sleep(300)
-    print("OK ----> Next....")
+    #print("^_^ -- OK -- ^_^")
     
     return True
 
@@ -260,7 +260,9 @@ def random_account(username=None, password=None, email=None, birthday=None, plus
                 raise
 
     return {
+        "-------------------------------": "",
         "username": try_username,
         "password": password,
-        "email": try_email
+        "email": try_email,
+        "-------------------------------": ""
     }
